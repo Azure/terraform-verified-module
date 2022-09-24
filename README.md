@@ -16,11 +16,16 @@ Enjoy it by following steps:
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-No requirements.
+| Name                                                                      | Version |
+|---------------------------------------------------------------------------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.2  |
+| <a name="requirement_null"></a> [null](#requirement\_null)                | >= 3.1  |
 
 ## Providers
 
-No providers.
+| Name                                                 | Version |
+|------------------------------------------------------|---------|
+| <a name="provider_null"></a> [null](#provider\_null) | >= 3.1  |
 
 ## Modules
 
@@ -28,17 +33,19 @@ No modules.
 
 ## Resources
 
-No resources.
+| Name                                                                                                       | Type     |
+|------------------------------------------------------------------------------------------------------------|----------|
+| [null_resource.nop](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
 
 ## Inputs
 
-| Name                                           | Description   | Type     | Default | Required |
-|------------------------------------------------|---------------|----------|---------|:--------:|
-| <a name="input_echo"></a> [echo](#input\_echo) | Hello, world! | `string` | n/a     |   yes    |
+| Name                                                            | Description      | Type     | Default | Required |
+|-----------------------------------------------------------------|------------------|----------|---------|:--------:|
+| <a name="input_echo_text"></a> [echo\_text](#input\_echo\_text) | The text to echo | `string` | n/a     |   yes    |
 
 ## Outputs
 
-| Name                                             | Description |
-|--------------------------------------------------|-------------|
-| <a name="output_echo"></a> [echo](#output\_echo) | n/a         |
+| Name                                                              | Description      |
+|-------------------------------------------------------------------|------------------|
+| <a name="output_echo_text"></a> [echo\_text](#output\_echo\_text) | The text to echo |
 <!-- END_TF_DOCS -->

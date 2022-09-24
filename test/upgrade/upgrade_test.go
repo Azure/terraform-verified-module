@@ -20,4 +20,3 @@ func TestExampleUpgrade_basic(t *testing.T) {
 		Upgrade: true,
 	}, currentMajorVersion)
 }
-
