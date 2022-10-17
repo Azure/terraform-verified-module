@@ -12,50 +12,23 @@ on:
 jobs:
   prepr-check:
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/azterraform:latest
-    env:
-      SKIP_CHECKOV: "true"
+    permissions:
+      pull-requests: write
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - uses: actions/setup-go@v3
+      - uses: jwalton/gh-find-current-pr@v1
+        id: PR
         with:
-          go-version: '>=1.17.0'
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14
-      - name: make tools
+          state: open
+      - name: pr-check
         run: |
-          make tools
-      - name: gofmtcheck
+          docker run --rm -v $(pwd):/src -w /src -e SKIP_CHECKOV mcr.microsoft.com/azterraform:latest make pr-check
+      - name: Breaking Change Brief
         run: |
-          make gofmtcheck
-      - name: gencheck
-        run: |
-          make gencheck
-      - name: tfvalidatecheck
-        run: |
-          make tfvalidatecheck
-      - name: tffmtcheck
-        run: |
-          make tffmtcheck
-      - name: terrafmtcheck
-        run: |
-          make terrafmtcheck
-      - name: golint
-        run: |
-          make golint
-      - name: tflint
-        run: |
-          make tflint
-      - name: Run Checkov action
-        id: checkov
-        if: ${{env.SKIP_CHECKOV == ''}}
-        uses: bridgecrewio/checkov-action@master
-        with:
-          directory: ./
-          framework: terraform
-          quiet: true
-          output_format: sarif
-          download_external_modules: true
+          change=$(docker run --rm -t -v $(pwd):/src -w /src mcr.microsoft.com/azterraform:latest breaking_detect /src ${{ github.repository_owner }} ${{ github.event.repository.name }} ${{ github.base_ref }})
+          if [ ! -z "$change" ]; then
+            msg=$(printf "Potential Breaking Changes in ${{ github.event.pull_request.head.sha }}:\n${change}")
+            jq -n --arg msg "$msg" '{body: $msg}' > body.txt
+            curl -s -X POST -H "Accept: application/vnd.github+json" -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/issues/${{ steps.PR.outputs.pr }}/comments -d @body.txt
+          fi
