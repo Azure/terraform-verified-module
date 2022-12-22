@@ -11,9 +11,6 @@ require (
 require (
 	cloud.google.com/go v0.83.0 // indirect
 	cloud.google.com/go/storage v1.10.0 // indirect
-	github.com/Masterminds/goutils v1.1.1 // indirect
-	github.com/Masterminds/semver v1.5.0 // indirect
-	github.com/Masterminds/sprig v2.22.0+incompatible // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/ahmetb/go-linq/v3 v3.2.0 // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
