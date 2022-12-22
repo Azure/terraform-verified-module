@@ -4,14 +4,15 @@ The Verified Terraform module is a template repository to help developers create
 
 Enjoy it by following steps:
 
-1. Use [this template](https://github.com/lonegunmanb/terraform-verified-module) to create your repository.
+1. Use [this template](https://github.com/Azure/terraform-verified-module) to create your repository.
 2. Write Terraform code in a new branch.
-3. Run `make pre-commit` to check in local.
-4. Create a pull request for the main branch.
-    * The title must be a [conventional message](https://www.conventionalcommits.org/)
-    * CI check will be executed automatically.
-5. Merge pull request, release, and tag will be auto-generated.
-6. Enjoy it!
+3. Run `docker run --rm -v ${pwd}:/src -w /src mcr.microsoft.com/azterraform:latest make pre-commit` to format the code.
+4. Run `docker run --rm -v $(pwd):/src -w /src mcr.microsoft.com/azterraform:latest make pr-check` to run the check in local.
+5. Create a pull request for the main branch.
+    * CI pr-check will be executed automatically.
+    * Once pr-check was passed, with manually approval, the e2e test and version upgrade test would be executed.
+6. Merge pull request.
+7. Enjoy it!
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements

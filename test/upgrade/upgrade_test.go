@@ -16,7 +16,7 @@ func TestExampleUpgrade_basic(t *testing.T) {
 	if err != nil {
 		t.FailNow()
 	}
-	test_helper.ModuleUpgradeTest(t, "lonegunmanb", "terraform-verified-module", "examples/basic", currentRoot, terraform.Options{
+	test_helper.ModuleUpgradeTest(t, "Azure", "terraform-verified-module", "examples/basic", currentRoot, terraform.Options{
 		Upgrade: true,
 	}, currentMajorVersion)
 }
