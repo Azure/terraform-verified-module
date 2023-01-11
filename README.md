@@ -6,8 +6,8 @@ Enjoy it by following steps:
 
 1. Use [this template](https://github.com/Azure/terraform-verified-module) to create your repository.
 2. Write Terraform code in a new branch.
-3. Run `docker run --rm -v ${pwd}:/src -w /src mcr.microsoft.com/azterraform:latest make pre-commit` to format the code.
-4. Run `docker run --rm -v $(pwd):/src -w /src mcr.microsoft.com/azterraform:latest make pr-check` to run the check in local.
+3. Run `docker run --rm -v $(pwd):/src -w /src mcr.microsoft.com/azterraform:latest make pre-commit` to format the code. On PowerShell, run `docker run --rm -v ${pwd}:/src -w /src mcr.microsoft.com/azterraform:latest make pre-commit`.
+4. Run `docker run --rm -v $(pwd):/src -w /src mcr.microsoft.com/azterraform:latest make pr-check` to run the check in local. On PowerShell, run `docker run --rm -v ${pwd}:/src -w /src mcr.microsoft.com/azterraform:latest make pr-check`.
 5. Create a pull request for the main branch.
     * CI pr-check will be executed automatically.
     * Once pr-check was passed, with manually approval, the e2e test and version upgrade test would be executed.
