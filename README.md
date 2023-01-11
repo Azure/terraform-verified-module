@@ -6,13 +6,14 @@ Enjoy it by following steps:
 
 1. Use [this template](https://github.com/Azure/terraform-verified-module) to create your repository.
 2. Write Terraform code in a new branch.
-3. Run `docker run --rm -v $(pwd):/src -w /src mcr.microsoft.com/azterraform:latest make pre-commit` to format the code. On PowerShell, run `docker run --rm -v ${pwd}:/src -w /src mcr.microsoft.com/azterraform:latest make pre-commit`.
-4. Run `docker run --rm -v $(pwd):/src -w /src mcr.microsoft.com/azterraform:latest make pr-check` to run the check in local. On PowerShell, run `docker run --rm -v ${pwd}:/src -w /src mcr.microsoft.com/azterraform:latest make pr-check`.
-5. Create a pull request for the main branch.
+3. Update [`acc-test.yaml`](.github/workflows/acc-test.yaml), modify `runs-on: [self-hosted, 1ES.Pool=<YOUR_REPO_NAME>]` with your 1es runners' pool name (basically it's your repo's name).
+4. Run `docker run --rm -v $(pwd):/src -w /src mcr.microsoft.com/azterraform:latest make pre-commit` to format the code. On PowerShell, run `docker run --rm -v ${pwd}:/src -w /src mcr.microsoft.com/azterraform:latest make pre-commit`.
+5. Run `docker run --rm -v $(pwd):/src -w /src mcr.microsoft.com/azterraform:latest make pr-check` to run the check in local. On PowerShell, run `docker run --rm -v ${pwd}:/src -w /src mcr.microsoft.com/azterraform:latest make pr-check`.
+6. Create a pull request for the main branch.
     * CI pr-check will be executed automatically.
     * Once pr-check was passed, with manually approval, the e2e test and version upgrade test would be executed.
-6. Merge pull request.
-7. Enjoy it!
+7. Merge pull request.
+8. Enjoy it!
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
