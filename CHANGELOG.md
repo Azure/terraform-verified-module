@@ -1,11 +1,11 @@
 # Changelog
 
-## [Unreleased](https://github.com/lonegunmanb/terraform-verified-module/tree/HEAD)
+## [Unreleased](https://github.com/Azure/terraform-verified-module/tree/HEAD)
 
 **Merged pull requests:**
 
-- chore\(deps\): bump github.com/gruntwork-io/terratest from 0.41.6 to 0.41.7 in /test [\#2](https://github.com/lonegunmanb/terraform-verified-module/pull/2) ([dependabot[bot]](https://github.com/apps/dependabot))
-- feat\(module\): Add base template of tfmod [\#1](https://github.com/lonegunmanb/terraform-verified-module/pull/1) ([yufeiminds](https://github.com/yufeiminds))
+- chore\(deps\): bump github.com/gruntwork-io/terratest from 0.41.6 to 0.41.7 in /test [\#2](https://github.com/Azure/terraform-verified-module/pull/2) ([dependabot[bot]](https://github.com/apps/dependabot))
+- feat\(module\): Add base template of tfmod [\#1](https://github.com/Azure/terraform-verified-module/pull/1) ([yufeiminds](https://github.com/yufeiminds))
 
 
 
