@@ -9,14 +9,15 @@ Enjoy it by following steps:
 1. Use [this template](https://github.com/Azure/terraform-verified-module) to create your repository.
 2. Read [Onboard 1ES hosted Github Runners Pool through Azure Portal](https://eng.ms/docs/cloud-ai-platform/devdiv/one-engineering-system-1es/1es-docs/1es-github-runners/createpoolportal), install [1ES Resource Management](https://github.com/apps/1es-resource-management) on your repo.
 3. Add a Github [Environment](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment) named **acctests** in your repo, setup [**Required Reviewers**](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#required-reviewers).
-4. Write Terraform code in a new branch.
-5. Run `docker run --rm -v ${pwd}:/src -w /src mcr.microsoft.com/azterraform:latest make pre-commit` to format the code.
-6. Run `docker run --rm -v $(pwd):/src -w /src mcr.microsoft.com/azterraform:latest make pr-check` to run the check in local.
-7. Create a pull request for the main branch.
+4. Update [`acc-test.yaml`](.github/workflows/acc-test.yaml), modify `runs-on: [self-hosted, 1ES.Pool=<YOUR_REPO_NAME>]` with your 1es runners' pool name (basically it's your repo's name).
+5. Write Terraform code in a new branch.
+6. Run `docker run --rm -v ${pwd}:/src -w /src mcr.microsoft.com/azterraform:latest make pre-commit` to format the code.
+7. Run `docker run --rm -v $(pwd):/src -w /src mcr.microsoft.com/azterraform:latest make pr-check` to run the check in local.
+8. Create a pull request for the main branch.
     * CI pr-check will be executed automatically.
     * Once pr-check was passed, with manually approval, the e2e test and version upgrade test would be executed.
-8. Merge pull request.
-9. Enjoy it!
+9. Merge pull request.
+10. Enjoy it!
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
