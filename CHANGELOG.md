@@ -4,6 +4,7 @@
 
 **Merged pull requests:**
 
+- chore\(deps\): bump github.com/gruntwork-io/terratest from 0.41.17 to 0.41.19 in /test [\#18](https://github.com/Azure/terraform-verified-module/pull/18) ([dependabot[bot]](https://github.com/apps/dependabot))
 - chore\(deps\): bump github.com/Azure/terraform-module-test-helper from 0.12.0 to 0.13.0 in /test [\#16](https://github.com/Azure/terraform-verified-module/pull/16) ([dependabot[bot]](https://github.com/apps/dependabot))
 - chore\(deps\): bump github.com/gruntwork-io/terratest from 0.41.15 to 0.41.16 in /test [\#14](https://github.com/Azure/terraform-verified-module/pull/14) ([dependabot[bot]](https://github.com/apps/dependabot))
 - chore\(deps\): bump github.com/stretchr/testify from 1.8.1 to 1.8.2 in /test [\#11](https://github.com/Azure/terraform-verified-module/pull/11) ([dependabot[bot]](https://github.com/apps/dependabot))
