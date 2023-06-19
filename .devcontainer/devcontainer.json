@@ -22,5 +22,6 @@
         "golang.Go"
       ]
     }
-  }
+  },
+  "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
 }
